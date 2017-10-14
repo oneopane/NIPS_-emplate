@@ -1,0 +1,78 @@
+%%%%%%%%%%%%%% General Commands
+
+%%% Text/Character Stuff
+
+%% Formatting/General Text Appearamnce
+
+% Bold
+\newcommand{\tb}[1]{\textbf{#1}}                                                    % Bolds normal text mode
+\newcommand{\mb}[1]{\mathbf{#1}}                                                    % Bolds text in math mode (\[\], $$, $$$$, etc.)
+
+% Italicize
+\newcommand{\te}[1]{\emph{#1}}                                                      % Italicize input
+
+% Remove Formatting
+% \rm{}                                                                             % Removes formatting in text mode
+\newcommand{\mrm}[1]{\mathrm{#1}}                                                   % Removes math formatting in math mode
+
+%% Math Stuff
+
+% Fancy Math Characters
+\newcommand{\fanF}{\mathbb{F}}                                                      % Returns a fancy F (can I make this so that I can optionally choose to have this in math mode or not?)
+\newcommand{\reals}{\mathbb{R}}                                                     % Returns fancy R, set of real numbers
+\newcommand{\complexs}{\mathbb{C}}                                                  % Returns fancy C, set of complex numbers
+\newcommand{\expectChar}{\mathbb{E}}                                                % Returns fancy E, symbol used for expectations of probability distributions
+\newcommand{\probP}{\mathbb{P}}                                                     % Returns fancy P, first symbol for probability distribution
+\newcommand{\probQ}{\mathbb{Q}}                                                     % Returns fancy Q, second symbol for probability distribution
+\newcommand{\indicate}{\mathbb{I}}                                                  % Returns fancy I, symbol for indicator function 
+
+
+% Math Operators
+\renewcommand{\min}[1]{\underset{#1}{\mrm{min} \ }}                                 % min with search space below
+\newcommand{\argmin}[1]{\underset{#1}{\mrm{argmin} \ }}                             % argmin with search space below
+\renewcommand{\inf}[1]{\underset{#1}{\mrm{inf} \ }}                                 % inf with search space below
+\renewcommand{\max}[1]{\underset{#1}{\mrm{max} \ }}                                 % max with search space below
+\newcommand{\argmax}[1]{\underset{#1}{\mrm{argmax} \ }}                             % argmax with search space below
+\renewcommand{\sup}[1]{\underset{#1}{\mrm{sup} \ }}                                 % sup with search space below
+
+% General Math
+\newcommand{\uosymbol}[3]{\underset{#1}{\overset{#3}{#2}}}                          % 1 is below 2, and 3 is above 2
+\newcommand{\uosum}[2]{\uosymbol{#1}{\sum}{#2}}                                     % 1 is below sum, and 2 is above sum
+
+% Probability
+\newcommand{\expectation}[2]{\matbb{E}_{#1}[#2]}                                    % 1 is distrubtion to take expectation wrt, 2 is the function to use when taking expectation
+
+
+%%Misc
+
+% Commenting
+% TODO: 
+%   - Make it so that you can do all different types of comments with one command using if statements
+\newcommand{\comment}[1]{{\ifShowComments \color{OliveGreen} #1 \fi}}               % Show comments in green if \ShowComments is true
+\newcommand{\largeComment}[1]{\comment{\large{#1}}}                                 % Show LARGE comments in green if \ShowComments is true
+\newcommand{\largeBoldComment}[1]{ \quad \quad \comment{\large{\tb{#1}}}}           % Show BOLD, LARGE comments in green if \ShowComments is true
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%% Topic Specific Commands
+
+%%% Reinforcement Learning
+
+
+
+%%% Statistics
+\newcommand{\RKHSMMD}{\mrm{MMD}^2[F, P, Q] = \expectation{x, x' \sim \probP}{k(x, x')} + \expectation{y, y'\sim \probQ}{k(y, y')} - 2 \expectation{x\sim\probP, \ y\sim\probQ}{k(x, y)}}
+\newcommand{\MMDProbDef}{MMD[\fanF, \probQ, \probQ] = \sup{f\in\fanF} |\expectation{x\sim\probP}[f(x)] - \expectation{y\sim\probQ}[f(y)]}
+\newcommand{\MMDSampleDef}{MMD[\fanF, \probQ, \probQ] = \sup{f\in\fanF} |\frac{1}{n}\uosum{x\in X}{}f(x) - \frac{1}{m}\uosum{y\in Y}{}[f(y)]}
+
+
+%%% Generative Modeling
+
+
+
+%%% Model Compression
